@@ -47,3 +47,6 @@ Für den Betrieb auf einem Raspberry Pi wird der systemd-Service verwendet:
 - make service-stop
 - make service-status
 - make logs
+
+## Hinweise
+Dieses Repository ist Bestandteil einer Masterthesis. Eine Weiterverwendung außerhalb des Thesis-Kontexts ist nicht vorgesehen.
