@@ -1,6 +1,6 @@
 # NILM-Gateway
 
-Dieses Repository enthält die Python-Implementierung eines des NILM-Gateways (Non-Intrusive Load Monitoring) im Kontext einer Masterthesis. Das Gateway verarbeitet 1-Hz-Summenleistungsdaten, erzeugt daraus Merkmale (Fensterbildung, z-Normalisierung, dP/dt), führt eine Inferenz mit einem trainierten GRU-basierten Mehrgeräte-Modell durch und publiziert die vorhergesagten Gerätezustände via MQTT, einschließlich Home-Assistant-Discovery.
+Dieses Repository enthält die Python-Implementierung des NILM-Gateways (Non-Intrusive Load Monitoring) im Kontext einer Masterthesis. Das Gateway verarbeitet 1-Hz-Summenleistungsdaten, erzeugt daraus Merkmale (Fensterbildung, z-Normalisierung, dP/dt), führt eine Inferenz mit einem trainierten GRU-basierten Mehrgeräte-Modell durch und publiziert die vorhergesagten Gerätezustände via MQTT, einschließlich Home-Assistant-Discovery.
 
 Der Code ist so aufgebaut, dass sowohl ein Live-Betrieb (hier: Shelly 3EM) als auch ein Replay-Betrieb (DEDDIAG-Postgres) möglich ist.
 
