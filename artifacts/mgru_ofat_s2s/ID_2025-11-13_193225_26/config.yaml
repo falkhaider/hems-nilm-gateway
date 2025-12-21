@@ -1,0 +1,42 @@
+seed: 42                       # Zufallsstartwert
+
+dataset:
+  schema: "public"             # PostgreSQL-Schema mit den DEDDIAG-Funktionen/Tabellen
+  db:
+    host: "127.0.0.1"          # DB-Host
+    port: 5432                 # DB-Port
+    dbname: "postgres"         # Datenbankname
+    user: "postgres"           # DB-Benutzer
+    password: "password"       # DB-Passwort
+
+  # Zeitraum der Daten (Train/Val/Test werden zeitlich daraus gesplittet: 70/15/15)
+  start: "2017-10-23T12:00:00" # Startzeitpunkt
+  end:   "2017-12-23T12:00:00" # Endzeitpunkt
+
+  mains_item_id: 59             # ID der Hauptleistung - Main (Modelleingang)
+  target_item_ids: [24, 26, 35] # Geraete (Heads): Waschmaschine, Geschirrspueler, Kuehlschrank
+  on_w: 10.0                    # Ein-Schwelle
+
+# --- Fenster ---
+window: 960                    # Fensterlaenge in Sekunden (Seq2Seq)
+stride: 10                     # Schrittweite in Sekunden
+
+# --- Modell ---
+model:
+  hidden: 128                  # Groesse des GRU-Hidden-States
+  layers: 4                    # Anzahl GRU-Schichten
+  dropout: 0.0                 # Dropout zwischen GRU-Schichten (nur wirksam bei layers > 1)
+
+# --- Training ---
+train:
+  batch_size: 128              # Fenster pro Optimizer-Update
+  lr: 0.0005                   # Lernrate (AdamW)
+  epochs: 10                   # Maximale Epochen
+  patience: 5                  # Early Stopping (Epochen ohne Val-Verbesserung)
+  amp: true                    # Automatic Mixed Precision
+  require_cuda: true           # GPU Nutzung
+
+# --- Artefakte ---
+artifacts:
+  out_dir: "artifacts/mgru_ofat_s2s" # Basisordner fuer gespeicherte Ergebnisse/Modelle
+  artifact_prefix: "ID"     # Praefix (Kennzeichnung Versuchsreihe)
