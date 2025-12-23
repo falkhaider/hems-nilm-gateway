@@ -32,7 +32,7 @@ dist/
 .idea/
 *.code-workspace
 
-# === Betriebssystem-Artefakte ===
+# === Betriebssystem ===
 # Windows
 Thumbs.db
 Desktop.ini
@@ -41,6 +41,6 @@ Desktop.ini
 .AppleDouble
 .LSOverride
 
-# === Projektordner, die nicht versioniert werden sollen ===
+# === Projektordner ===
 data/
 outputs/
